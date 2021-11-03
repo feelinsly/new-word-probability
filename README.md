@@ -25,24 +25,21 @@ where AC_i(t) = 1 when y_i(t+1)- y_i(t) >= c, c is a predetermined cut point (i.
 
 Once you have the outputs from the code, you might want to transition to R to do the necessary data analysis:
 
+```
 #create PAC - probability of acute change  - function
-
 pac_d_Id <- function(data_Id, c)
 {
   data_Id_lag <- lag(data_Id,k=-1,na.pad = TRUE) #this creates the lag variable
-  
   ac = ifelse((data_Id-data_Id_lag) >= c,1,0)  #this calculates the binary acute change (deals with NA)
-  
   denominator<-(length(ac)-1)         #this computes the number of non-missing elements (denominator)
-  
   pac <- sum(ac/denominator,na.rm=TRUE)     #this calculates the pac
-  
   return(pac)
 }
-
+```
+```
 #applying this function:
-
 pac_new_word=pac_d_Id(time_weighted_new_word_count_rescaled,c=0.1)
+```
 
 The cut point, c, could be chosen by sensitivity analysis and should be the same across all individuals for a potential between-person comparison (Jahng et al., 2008). 
 
