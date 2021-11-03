@@ -15,6 +15,12 @@ And it produces necessary outputs for caculating the probability of acute change
 
 ![image](https://user-images.githubusercontent.com/733839/139968744-a5d81c6d-1c01-49a2-ab36-b2d21e1b7216.png)
 
+Probability of Acute Change (PAC) represents the likelihood of acute changes across time, de ned by the number of acute changes divided by the total number of changes, which in our context is the acute increase of new words. The equation for iPAC
+is:
+<img width="230" alt="Screen Shot 2021-11-02 at 5 17 29 PM" src="https://user-images.githubusercontent.com/733839/139968854-40cd5353-f6f5-4299-a59a-84962f56c87a.png">
+
+where AC_i(t) = 1 when y_i(t+1)- y_i(t) >= c, c is a predetermined cut point (i.e., threshold), and AC_i(t) = 0 otherwise. The cut point was chosen by
+sensitivity analysis and was the same across all individuals for a potential between-person comparison (Jahng et al., 2008). Put in another way, acute increases of new words in the participant's talking, as compared with his/her previous usage of words, indicates, what I call "change of design frame", or "evolution of design frame", or "frame adjustment". 
 
 
 # Source of code
