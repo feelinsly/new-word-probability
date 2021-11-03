@@ -1,6 +1,6 @@
 # new-word-probility
 This python code applies _Probability of Acute Change Metric_ on Conversation Data to analyze probability of acute increase of new words in time-series conversation data.
-The code is used to **analyze word use across time in group conversation data**. In particular, it examines the likelihood of forming or using new words at a certain time of point. The method is originally used to examine affective instability in Jahng et al., 2008 [Link](https://psycnet.apa.org/record/2008-17368-004) and applied in our paper below:
+The code is used to **analyze word use across time in group conversation data**. In particular, it examines the likelihood of forming or using new words at a certain time of point. The method is originally used to examine affective instability in Jahng et al., 2008 ([Link](https://psycnet.apa.org/record/2008-17368-004)) and applied in our paper below:
 
 Ge, X., Leifer, L., & Shui, L. (2021). Situated emotion and its constructive role in collaborative design: A mixed-method study of experienced designers. Design Studies, 75, 101020. https://www.sciencedirect.com/science/article/pii/S0142694X21000314 
 
