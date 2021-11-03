@@ -6,25 +6,45 @@ Ge, X., Leifer, L., & Shui, L. (2021). Situated emotion and its constructive rol
 
 
 # What does the code do to calculate Probability of Acute Change?
+The analysis process is summarized as follows:
 
-The code take this input of conversation data:
+![image](https://user-images.githubusercontent.com/733839/139968744-a5d81c6d-1c01-49a2-ab36-b2d21e1b7216.png)
+
+The python code take an input of conversation data, such as:
 
 <img width="1323" alt="Screen Shot 2021-11-02 at 5 12 15 PM" src="https://user-images.githubusercontent.com/733839/139968594-3fab92f4-7aef-41ca-be2c-0bfc455fab30.png">
 
-And it produces necessary outputs for caculating the probability of acute change (PAC) through this process:
+And it would produce necessary outputs for caculating the probability of acute change (PAC)
 
-![image](https://user-images.githubusercontent.com/733839/139968744-a5d81c6d-1c01-49a2-ab36-b2d21e1b7216.png)
 
 Probability of Acute Change (PAC) represents the likelihood of acute changes across time, de ned by the number of acute changes divided by the total number of changes, which in our context is the acute increase of new words. The equation for iPAC
 is:
 <img width="230" alt="Screen Shot 2021-11-02 at 5 17 29 PM" src="https://user-images.githubusercontent.com/733839/139968854-40cd5353-f6f5-4299-a59a-84962f56c87a.png">
 
-where AC_i(t) = 1 when y_i(t+1)- y_i(t) >= c, c is a predetermined cut point (i.e., threshold), and AC_i(t) = 0 otherwise. The cut point was chosen by
-sensitivity analysis and was the same across all individuals for a potential between-person comparison (Jahng et al., 2008). Put in another way, acute increases of new words in the participant's talking, as compared with his/her previous usage of words, indicates, what I call "change of design frame", or "evolution of design frame", or "frame adjustment". 
+where AC_i(t) = 1 when y_i(t+1)- y_i(t) >= c, c is a predetermined cut point (i.e., threshold), and AC_i(t) = 0 otherwise.
+
+Once you have the outputs from the code, you might want to transition to R to do the necessary data analysis:
+
+#create PAC - probability of acute change  - function
+pac_d_Id <- function(data_Id, c)
+{
+  data_Id_lag <- lag(data_Id,k=-1,na.pad = TRUE) #this creates the lag variable
+  ac = ifelse((data_Id-data_Id_lag) >= c,1,0)  #this calculates the binary acute change (deals with NA)
+  denominator<-(length(ac)-1)         #this computes the number of non-missing elements (denominator)
+  pac <- sum(ac/denominator,na.rm=TRUE)     #this calculates the pac
+  return(pac)
+}
+
+#applying this function:
+pac_new_word=pac_d_Id(time_weighted_new_word_count_rescaled,c=0.1)
+
+The cut point, c, could be chosen by sensitivity analysis and should be the same across all individuals for a potential between-person comparison (Jahng et al., 2008). 
+
+For our paper, acute increases of new words in the participant's talking, as compared with his/her previous usage of words, indicates, what we call "change of design frame", or "evolution of design frame", or "frame adjustment". 
 
 
 # Source of code
-The code is writtend by Hao Zhong and Xiao Ge.
+The code is written by Hao Zhong and Xiao Ge.
 
 The code was built for data analysis in this paper: 
 
