@@ -14,8 +14,10 @@ The python code take an input of conversation data, such as:
 
 <img width="1323" alt="Screen Shot 2021-11-02 at 5 12 15 PM" src="https://user-images.githubusercontent.com/733839/139968594-3fab92f4-7aef-41ca-be2c-0bfc455fab30.png">
 
-And it would produce necessary outputs for caculating the probability of acute change (PAC)
+And it would produce necessary outputs for caculating the probability of acute change (PAC).
 
+Example output:
+<img width="412" alt="Screen Shot 2021-11-02 at 4 41 09 PM" src="https://user-images.githubusercontent.com/733839/139969763-0500fdcd-fde9-47e9-9bcb-68083d5d9fa0.png">
 
 Probability of Acute Change (PAC) represents the likelihood of acute changes across time, de ned by the number of acute changes divided by the total number of changes, which in our context is the acute increase of new words. The equation for iPAC
 is:
